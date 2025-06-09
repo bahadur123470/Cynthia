@@ -117,3 +117,81 @@ html, body {
     border-radius: 50%;
     opacity: .6;
 }
+
+#second {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    background-color: black;
+    padding: 15vh 10vw 0 3vw;
+}
+.ele {
+    width: 100%;
+    padding: 3.5vw 0 3.5vw 0;
+    border-top: 1px solid #888;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+.eleLast {
+    border-bottom: 1px solid #888;
+}
+.ele h1 {
+    font-size: 6.6vw;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #888;
+}
+.ele img {
+    height: 100%;
+    /* opacity: 0 ; */
+    display: none;
+    position: absolute;
+    z-index: 999;
+}
+.ele .btn {
+    padding: 5vw;
+    /* background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+.btn button {
+    font-size: 1vw;
+    color: #fff;
+    background-color: black;
+    padding: 10px 22px;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    cursor: pointer;
+    word-spacing: 1px;
+}
+
+#moving {
+    width: 100%;
+    overflow: hidden;
+    background-color: black;
+    padding: 2vw 0;
+    border-top: 1px solid  #888;
+    border-bottom: 1px solid  #888;
+}
+.marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 20s linear infinite;
+}
+.marquee img {
+    height: 60px;
+    margin: 0 40px;
+    user-select: none;
+    pointer-events: none;
+}
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
