@@ -69,24 +69,30 @@ landingPage();
 document.querySelectorAll(".ele").forEach( function(ele){
     let rotate = 0;
     let diffRotate = 0; 
+    let img = ele.querySelector("img")
     
-    ele.addEventListener("mousemove", function(dets){
-        let differ = dets.clientY - ele.getBoundingClientRect().top
-        diffRotate = dets.clientX - rotate ;
-        rotate = dets.clientX;
-        gsap.to(ele.querySelector("img"), {
-            opacity: 1,
-            ease: Power3,
-            top: differ,
-            left: dets.clientX,
-            rotate: gsap.utils.clamp(-20, 20, diffRotate * 0.2)
-        })
+ele.addEventListener("mousemove", function(dets){
+    let differ = dets.clientY - ele.getBoundingClientRect().top
+    diffRotate = dets.clientX - rotate ;
+    rotate = dets.clientX;
+
+    img.style.display = "block";
+    gsap.to(ele.querySelector("img"), {
+        opacity: 1,
+        ease: Power3,
+        top: differ,
+        left: dets.clientX,
+        rotate: gsap.utils.clamp(-20, 20, diffRotate * 0.3),
     })
-    ele.addEventListener("mouseleave", function(dets){
-        gsap.to(ele.querySelector("img"), {
-            opacity: 0,
-            ease: Power3,
-            duration: 0.5
-        })
+})
+ele.addEventListener("mouseleave", function(dets){
+    gsap.to(img, {
+        opacity: 0,
+        ease: Power3,
+        duration: 0.5,
+        onComplete: () => {
+            img.style.display = "none";
+        }
     })
+})
 })
