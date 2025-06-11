@@ -8,13 +8,24 @@ html, body {
     height: 100%;
     width: 100%;
 }
-#mousefollower {
-    height: 20px;
-    width: 20px;
+#cursorfollower {
+    height: 10px;
+    width: 10px;
     border-radius: 50%;
     position: absolute;
-    z-index: 9999;
+    z-index: 99999;
     background-color: #fff;
+    pointer-events: none;
+    transition: cubic-bezier(0.19, 1, 0.22, 1) 1s;
+    mix-blend-mode: difference;
+}
+.animated {
+    width: fit-content;
+    overflow: hidden;
+}
+.animated .textup {
+    transform: translateY(100%);
+
 }
 #main {
     width: 100%;
@@ -35,6 +46,10 @@ html, body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
+}
+#hero #nav:hover {
+    color: #888;
 }
 #nav a {
     color: #fff;
@@ -55,6 +70,9 @@ html, body {
 #heading .block {
     width: fit-content;
     margin-left: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
 }
 .block h5 {
     text-align: right;
@@ -63,6 +81,9 @@ html, body {
     word-spacing: 1px;
 }
 #sub1 {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
     margin-top: 130px;
     padding-right: 30px;
 }
@@ -84,8 +105,9 @@ html, body {
 }
 #sub2 .sec1 {
     display: flex;
-    justify-content: center;
     flex-direction: column;
+    justify-content: center;
+    align-items: start;
     width: 40%;
     border: 2px solid black;
 }
